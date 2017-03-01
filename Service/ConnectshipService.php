@@ -2,6 +2,10 @@
 
 namespace Williams\ConnectshipBundle\Service;
 
+use Williams\ConnectshipBundle\AMP\AMPServices;
+use Williams\ConnectshipBundle\AMP\ListCarriersRequest;
+use Williams\ConnectshipBundle\AMP\SearchRequest;
+
 class ConnectshipService {
 
     private $client;
