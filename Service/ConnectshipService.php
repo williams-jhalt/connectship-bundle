@@ -53,7 +53,10 @@ class ConnectshipService {
             $searchRequest = new SearchRequest($carrier->getSymbol(), null, null, null, null, null, null);
             $searchRequest->setFilters(array('consigneeReference' => $ucc));
             $searchResponse = $service->Search($searchRequest);
-            return $searchResponse->getResult()->getResultData()->getItem();
+            $item = $searchResponse->getResult()->getResultData()->getItem();
+            if ($item !== null) {
+                return $item;
+            }
         }
         
     }
@@ -73,7 +76,10 @@ class ConnectshipService {
             $searchRequest = new SearchRequest($carrier->getSymbol(), null, null, null, null, null, null);
             $searchRequest->setFilters(array('trackingNumber' => $trackingNumber));
             $searchResponse = $service->Search($searchRequest);
-            return $searchResponse->getResult()->getResultData()->getItem();
+            $item = $searchResponse->getResult()->getResultData()->getItem();
+            if ($item !== null) {
+                return $item;
+            }
         }
         
     }
